@@ -1,1 +1,7 @@
-<p>custom-select works!</p>
+<mat-form-field appearance="fill" class="custom_select">
+  <mat-label>Choose your role</mat-label>
+  <mat-select [formControl]="selectControl">
+    <mat-option value="Admin">Admin</mat-option>
+    <mat-option value="User">User</mat-option>
+  </mat-select>
+</mat-form-field>

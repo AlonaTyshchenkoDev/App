@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, NG_VALIDATORS, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
 
@@ -33,7 +33,8 @@ import { CustomValidators } from './Custom-validator/custom-validator';
     MatSelectModule
   ],
   providers: [
-    {provide: NG_VALIDATORS, useExisting: CustomValidators}
+    {provide: NG_VALIDATORS, useExisting: CustomValidators},
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}
   ],
   exports: [RouterModule],
   bootstrap: [AppComponent]
