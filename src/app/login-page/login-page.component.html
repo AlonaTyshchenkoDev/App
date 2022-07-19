@@ -1,1 +1,29 @@
-<p>login-page works!</p>
+<div class="card">
+  <form class="form-floating" [formGroup]="loginForm" (submit)="submitForm()">
+    <h1>Log in</h1>
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+             [ngClass]="{
+             'is-invalid': (loginForm.controls['email']?.hasError('email')
+             ||  loginForm.controls['email']?.hasError('required'))
+             && loginForm.controls['email']?.touched  }"
+             formControlName="email">
+      <label for="floatingInput">Email address</label>
+      <div class="invalid-feedback">
+        Please write valid email.
+      </div>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+             [ngClass]="{ 'is-invalid': (loginForm.controls['password']?.hasError('required')
+             || loginForm.controls['password']?.hasError('minLength'))
+             && loginForm.controls['password']?.touched}"
+             formControlName="password">
+      <label for="floatingPassword">Password</label>
+      <div class="invalid-feedback">
+        Please write valid password.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+</div>

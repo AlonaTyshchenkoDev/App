@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NG_VALIDATORS, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { ChatComponent } from './chat/chat.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CustomSelectComponent } from './custom-select/custom-select.component';
+import { CustomValidators } from './Custom-validator/custom-validator';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,9 @@ import { CustomSelectComponent } from './custom-select/custom-select.component';
     MatFormFieldModule,
     MatSelectModule
   ],
-  providers: [],
+  providers: [
+    {provide: NG_VALIDATORS, useExisting: CustomValidators}
+  ],
   exports: [RouterModule],
   bootstrap: [AppComponent]
 })
