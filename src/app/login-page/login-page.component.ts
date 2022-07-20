@@ -15,7 +15,8 @@ export class LoginPageComponent{
   loginForm: FormGroup = this.formBuilder.group({
       email: ['', [Validators.email, Validators.required]],
       password:['', [Validators.required, CustomValidators.minLength(8)]],
-      role:['']
+      role:[''],
+      code:['']
     }
   );
 
@@ -28,6 +29,7 @@ export class LoginPageComponent{
     if(this.loginForm.invalid) return;
 
     const value = this.loginForm.value;
+    console.log(value)
     alert(`${value.role} ${value.email} is logged in`);
     this.router.navigate(['']).then();
   }

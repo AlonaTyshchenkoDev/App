@@ -11,15 +11,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChatComponent } from './chat/chat.component';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { CustomSelectComponent } from './custom-select/custom-select.component';
+import { CustomSelectComponent } from './custom-elements/select-code/custom-select.component';
 import { CustomValidators } from './Custom-validator/custom-validator';
+import { InputCodeComponent } from './custom-elements/input-code/input-code.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChatComponent,
     LoginPageComponent,
-    CustomSelectComponent
+    CustomSelectComponent,
+    InputCodeComponent
   ],
   imports: [
     BrowserModule,

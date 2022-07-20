@@ -2,7 +2,7 @@ import { Component, forwardRef, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'app-custom-select',
+  selector: 'app-select-code',
   templateUrl: './custom-select.component.html',
   styleUrls: ['./custom-select.component.scss'],
   providers: [{

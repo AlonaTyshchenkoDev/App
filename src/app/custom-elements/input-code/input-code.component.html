@@ -1,0 +1,15 @@
+<div class="input-group" [formGroup]="inputCodeGroup">
+  <ng-container formArrayName="inputCode">
+    <ng-container *ngFor="let item of inputArray.controls; index as idx">
+      <div #codeItem class="input-group-item">
+        <input [formControlName]="idx" #inputCode
+               (focusin)="codeItem.classList.add('active')"
+               (focusout)="codeItem.classList.remove('active')"
+               (keyup)="nextInputFocus($event, idx)"
+               (keyup.backspace)="previousInputFocus(idx)"
+               (keypress)="numberOnly($event)"
+               type="text" maxlength="1">
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
