@@ -1,30 +1,38 @@
-<nav class="navbar bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand">Chat</a>
-  </div>
-</nav>
-
-<main class="chat">
-  <div class="container">
-    <div class="chat-content">
-      <div class="card">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item" *ngFor="let message of messages">
-            <strong>User</strong>
-            <span> {{message}}</span>
-          </li>
-        </ul>
+<div class="wrapper" #stylesContainer>
+  <nav class="navbar navbar-expand-lg bg-light" #navbar>
+    <div class="container-fluid">
+      <a class="navbar-brand">Chat</a>
+      <div class="form-check form-switch">
+        <input class="form-check-input"
+               (click)="change($event, this.wrapper)"
+               type="checkbox" role="switch" id="flexSwitchCheckDefault" >
+        <label class="form-check-label" for="flexSwitchCheckDefault">{{theme.getValue()}}</label>
       </div>
     </div>
-    <form [formGroup]="form" >
-      <div class="chat-send row">
-        <div class="col-8">
-          <input type="text" class="form-control" name="message" formControlName="message">
-        </div>
-        <div class="col-2">
-          <button type="button" (click)="send()" class="btn btn-primary">Send</button>
+  </nav>
+
+  <main class="chat" #body>
+    <div class="container">
+      <div class="chat-content">
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let message of messages">
+              <strong>User</strong>
+              <span> {{message}}</span>
+            </li>
+          </ul>
         </div>
       </div>
-    </form>
-  </div>
-</main>
+      <form [formGroup]="form" >
+        <div class="chat-send row">
+          <div class="col-8">
+            <input type="text" class="form-control" name="message" formControlName="message">
+          </div>
+          <div class="col-2">
+            <button type="button"(click)="send()" class="btn btn-primary">Send</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>
